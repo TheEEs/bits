@@ -5,7 +5,9 @@
                 <span @click="bitsA[k] = Math.abs(i - 1)" v-for="i, k in bitsA" :key="`bitA${k}`">{{ bit(i)
                 }}</span>
             </section>
-            <strong class="text-sm font-normal">({{ decA }})</strong>
+            <strong class="text-sm font-normal">({{ decA }})</strong> <button
+                @click="bitsA = bitsA.map(v => Math.abs(v - 1))"
+                class="float-right text-sm font-normal bg-yellow-500 text-yellow-900 px-1">not A</button>
             <div>
                 <select class="py-4" v-model="operator" name="operator" id="">
                     <option value="and">AND</option>
@@ -16,7 +18,9 @@
             <section id="bitsB" class="text-3xl cursor-pointer">
                 <span @click="bitsB[k] = Math.abs(i - 1)" v-for="i, k in bitsB" :key="`bitB${k}`">{{ bit(i) }}</span>
             </section>
-            <strong class="text-sm font-normal">({{ decB }})</strong>
+            <strong class="text-sm font-normal">({{ decB }})</strong><button
+                v-on:click="bitsB = bitsB.map(v => Math.abs(v - 1))"
+                class="float-right text-sm font-normal text-violet-900 bg-violet-400 px-1">not B</button>
 
             <div id="line" class="border-2 border-slate-600 mt-6 mb-4"></div>
             <section id="bitC" class="text-3xl cursor-default">
